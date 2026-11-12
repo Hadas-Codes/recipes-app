@@ -4,6 +4,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import { useNavigate } from "react-router";
 import { schema } from "../utils/schema";
 import { login } from "../services/auth";
+import TextField from "../components/TextField";
 
 export default function LoginRhf() {
   const navigate = useNavigate();
@@ -32,17 +33,18 @@ export default function LoginRhf() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>טופס עם react-hook-form</h1>
 
-      <div>
-        <label htmlFor="email">אימייל</label>
-        <input id="email" {...register("email")} />
-        {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
-      </div>
+      <TextField
+        label="אימייל"
+        error={errors.email?.message}
+        {...register("email")}
+      />
 
-      <div>
-        <label htmlFor="password">סיסמה</label>
-        <input id="password" type="password" {...register("password")} />
-        {errors.password && <p style={{ color: "red" }}>{errors.password.message}</p>}
-      </div>
+      <TextField
+         label="סיסמה"
+         type="password"
+         error={errors.password?.message}
+        {...register("password")}
+      />
 
       {generalError && <p style={{ color: "red" }}>{generalError}</p>}
 

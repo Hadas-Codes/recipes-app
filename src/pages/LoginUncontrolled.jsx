@@ -2,6 +2,7 @@
 import { useActionState } from "react";
 import { useNavigate } from "react-router";
 import { login } from "../services/auth";
+import TextField from "../components/TextField";
 
 export default function LoginUncontrolled() {
   const navigate = useNavigate();
@@ -44,22 +45,20 @@ export default function LoginUncontrolled() {
     <form action={formAction}>
       <h1>טופס לא מבוקר</h1>
 
-      <div>
-        <label htmlFor="email">אימייל</label>
-        <input id="email" name="email" defaultValue={state.values.email} />
-        {state.errors.email && <p style={{ color: "red" }}>{state.errors.email}</p>}
-      </div>
+        <TextField
+        label="אימייל"
+        name="email"
+        defaultValue={state.values.email}
+        error={state.errors.email}
+      />
 
-      <div>
-        <label htmlFor="password">סיסמה</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          defaultValue={state.values.password}
-        />
-        {state.errors.password && <p style={{ color: "red" }}>{state.errors.password}</p>}
-      </div>
+      <TextField
+        label="סיסמה"
+        name="password"
+        type="password"
+        defaultValue={state.values.password}
+        error={state.errors.password}
+      />
 
       {state.errors.general && <p style={{ color: "red" }}>{state.errors.general}</p>}
 
