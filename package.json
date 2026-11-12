@@ -12,8 +12,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^7.0.6",
+    "joi": "^18.3.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-hook-form": "^7.92.0",
     "react-router": "^8.0.0"
   },
   "devDependencies": {
